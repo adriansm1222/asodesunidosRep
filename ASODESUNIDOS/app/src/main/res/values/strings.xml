@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ASODESUNIDOS</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="text_view">Text View</string>
+    <string name="n_mero_de_tel_fono">Número de Teléfono</string>
+    <string name="salario">Salario</string>
+    <string name="estado_civil">Estado Civil</string>
+    <string name="uni_n_libre">Unión Libre</string>
+    <string name="viudo_a">Viudo/a</string>
+    <string name="divorciado_a">Divorciado/a</string>
+    <string name="soltero_a">Soltero/a</string>
+    <string name="casado_a">Casado/a</string>
+    <string name="volver">Volver</string>
+    <string name="guardar">Guardar</string>
+    <string name="fecha_nacimiento">Fecha Nacimiento</string>
 </resources>
