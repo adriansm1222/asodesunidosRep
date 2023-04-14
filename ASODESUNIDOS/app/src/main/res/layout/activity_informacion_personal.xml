@@ -44,7 +44,7 @@
         android:backgroundTint="@color/text"
         android:ems="10"
         android:hint="@string/fecha_nacimiento"
-        android:inputType="date"
+        android:inputType="none"
         android:paddingVertical="5sp"
         android:textAlignment="viewStart"
         android:textColor="@color/text"
@@ -54,7 +54,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.327"
+        android:focusable="false"
+        android:clickable="true"/>
 
     <EditText
         android:id="@+id/etTelefono"
@@ -75,80 +77,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.187" />
-
-    <RadioGroup
-        android:id="@+id/rgCivil2"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546">
-
-        <RadioButton
-            android:id="@+id/rbUnion"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/text"
-            android:text="@string/uni_n_libre"
-            android:textColor="@color/text"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/rbViudo"
-            android:layout_width="108dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/text"
-            android:text="@string/viudo_a"
-            android:textColor="@color/text"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/rbDivorciado"
-            android:layout_width="136dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/text"
-            android:text="@string/divorciado_a"
-            android:textColor="@color/text"
-            android:textSize="16sp" />
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/rgCivil1"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472">
-
-        <RadioButton
-            android:id="@+id/rbSoltero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/text"
-            android:text="@string/soltero_a"
-            android:textColor="@color/text"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/rbCasado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/text"
-            android:text="@string/casado_a"
-            android:textColor="@color/text"
-            android:textSize="16sp" />
-    </RadioGroup>
 
     <EditText
         android:id="@+id/etSalario"
@@ -223,6 +151,7 @@
         android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="guardar"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -230,6 +159,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85" />
+
+    <Spinner
+        android:id="@+id/spEstado"
+        android:layout_width="152dp"
+        android:layout_height="51dp"
+        android:background="@color/material_on_surface_stroke"
+        android:spinnerMode="dialog"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
