@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".PantallaPrincipalClienteActivity">
+
+
+    <LinearLayout
+        android:layout_width="259dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="63dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/buttonVerPrestamos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="verPrestamos"
+            android:text="Ver mis préstamos" />
+
+        <Button
+            android:id="@+id/buttonGestionarAhorros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="gestionarAhorros"
+            android:text="Gestionar mis ahorros" />
+
+        <Button
+            android:id="@+id/buttonCalculaCUota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="calculaCuota"
+            android:text="Calcula cuota" />
+
+        <Button
+            android:id="@+id/buttonInformacionPersonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="infoPersonal"
+            android:text="Información personal" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="83dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
