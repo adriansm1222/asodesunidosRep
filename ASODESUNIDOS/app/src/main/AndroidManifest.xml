@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ASODESUNIDOS"
         tools:targetApi="31">
         <activity
+            android:name=".CalculaCuota"
+            android:exported="false" />
+        <activity
             android:name=".InformacionPersonal"
             android:exported="false" />
         <activity

@@ -59,7 +59,7 @@ public class InformacionPersonal extends AppCompatActivity {
                 R.layout.layout_spinner, opciones);
         spEstado.setAdapter(adapter);
 
-        //Configuracion interna btnGuardar y etFecha
+        //Configuracion etFecha
         etFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -142,9 +142,7 @@ public class InformacionPersonal extends AppCompatActivity {
                 etFecha.setText(selectedDate);
             }
         };
-
         String birthDate = etFecha.getText().toString();
-
         DatePickerFragment newFragment;
         if (birthDate.isEmpty()) {
             newFragment = DatePickerFragment.newInstance(onNewDateListener);
@@ -158,7 +156,6 @@ public class InformacionPersonal extends AppCompatActivity {
                     Integer.parseInt(parts[0])
             );
         }
-
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 

@@ -34,4 +34,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(CEDULA, "231304429");
         startActivity(intent);
     }
+
+    public void abrirConsulta(View vista){
+        Intent intent = new Intent(this, CalculaCuota.class);
+        startActivity(intent);
+    }
 }

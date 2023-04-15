@@ -13,4 +13,13 @@
     <string name="volver">Volver</string>
     <string name="guardar">Guardar</string>
     <string name="fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="calcular_cuota">Calcular Cuota</string>
+    <string name="tipo_prestamo">Tipo de Préstamo</string>
+    <string name="direccion">Dirección</string>
+    <string name="interes">Tasa de Interés</string>
+    <string name="plazo">Plazo en años</string>
+    <string name="monto">Monto del Préstamo</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="calcular">Calcular</string>
+    <string name="cuota">Cuota Mensual</string>
 </resources>
