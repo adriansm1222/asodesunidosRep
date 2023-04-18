@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         Cursor fila = database.rawQuery("select nombre,tipo from cliente where cedula = " + Integer.parseInt(et_usuario), null);
-        String path = database.getPath();
         if(fila.moveToFirst()){
             String responseNombre = fila.getString(0);
             String responseTipo = fila.getString(1);

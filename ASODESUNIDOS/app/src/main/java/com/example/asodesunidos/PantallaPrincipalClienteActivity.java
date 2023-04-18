@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class PantallaPrincipalClienteActivity extends AppCompatActivity {
 
     String usuario;
-
+    public static final String CEDULA = "PantallaPrincipalClienteActivity.CEDULA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,9 @@ public class PantallaPrincipalClienteActivity extends AppCompatActivity {
     }
 
     public void gestionarAhorros(View view){
-
+        Intent intent = new Intent(this, GestionaAhorros.class);
+        intent.putExtra(CEDULA, usuario);
+        startActivity(intent);
     }
 
     public void calculaCuota(View view){
