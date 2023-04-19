@@ -82,9 +82,9 @@
             android:layout_height="match_parent"
             android:ems="10"
             android:inputType="number"
-            android:textColor="@color/text"
             android:textAlignment="center"
-            />
+            android:textColor="@color/text"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
 

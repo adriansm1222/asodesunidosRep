@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Toast.makeText(this, "zzz", Toast.LENGTH_SHORT).show();
+        database.close();
     }
 
 }

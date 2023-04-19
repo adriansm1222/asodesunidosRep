@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,8 +27,7 @@ public class IngresaAhorro extends AppCompatActivity {
     Button button;
 
     Float monto;
-
-
+    Float salarioCliente;
     public static final String CEDULA = "GestionaAhorros.CEDULA";
     public static final String TIPOAHORRO = "GestionaAhorros.CEDULA";
 
@@ -60,13 +60,64 @@ public class IngresaAhorro extends AppCompatActivity {
                 monto = Float.parseFloat(editTextNumber.getText().toString());
 
                 if(monto>=5000 || editTextNumber.getText().equals(" ")){
-                    insertarAhorro();
+                    verificaSalario();
+                    if(salarioCliente!=null){
+                        if (salarioCliente >= monto) {
+                            insertarAhorro();
+                            modificarSalario();
+                        }
+                        else{
+                            Toast.makeText(IngresaAhorro.this, "Su salario no cuenta con fondos suficientes", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                    else{
+                        Toast.makeText(IngresaAhorro.this, "Ha ocurrido un error con su usuario", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                 }
                 else{
                     editTextNumber.setError("Ingreese una cantidad mayor a ₡5000");
                 }
             }
         });
+
+    }
+
+    public void verificaSalario(){
+        BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
+        SQLiteDatabase database = admin.getWritableDatabase();
+
+
+        Cursor fila = database.rawQuery("select salario from cliente where cedula = " + Integer.parseInt(usuario), null);
+        if (fila.moveToFirst()) {
+            salarioCliente = fila.getFloat(0);
+        }
+        else{
+            Toast.makeText(this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+        }
+        database.close();
+
+    }
+
+
+    public void modificarSalario(){
+        BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
+        SQLiteDatabase database = admin.getWritableDatabase();
+
+        ContentValues registro = new ContentValues();
+        Float nuevoSalario = salarioCliente-monto;
+        registro.put("salario",nuevoSalario);
+
+        int cantidad = database.update("cliente",registro,"cedula="+usuario,null);
+        database.close();
+        if(cantidad==1){
+            Toast.makeText(this, "Ahorro ingresado correctamente", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this, "Ha ocurrido un error al ingreasr el ahorro", Toast.LENGTH_LONG).show();
+
+        }
 
     }
 
@@ -80,8 +131,6 @@ public class IngresaAhorro extends AppCompatActivity {
         registro.put("tipo",tipoAhorro);
         database.insert("ahorro",null,registro);
         database.close();
-        Toast.makeText(this, "Ahorro ingresado correctamente", Toast.LENGTH_LONG).show();
-        finish();
 
     }
 
