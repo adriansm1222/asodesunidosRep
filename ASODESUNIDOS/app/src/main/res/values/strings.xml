@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">ASODESUNIDOS</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="text_view">Text View</string>
+    <string name="n_mero_de_tel_fono">Número de Teléfono</string>
+    <string name="salario">Salario</string>
+    <string name="estado_civil">Estado Civil</string>
+    <string name="uni_n_libre">Unión Libre</string>
+    <string name="viudo_a">Viudo/a</string>
+    <string name="divorciado_a">Divorciado/a</string>
+    <string name="soltero_a">Soltero/a</string>
+    <string name="casado_a">Casado/a</string>
+    <string name="volver">Volver</string>
+    <string name="guardar">Guardar</string>
+    <string name="fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="calcular_cuota">Calcular Cuota</string>
+    <string name="tipo_prestamo">Tipo de Préstamo</string>
+    <string name="direccion">Dirección</string>
+    <string name="interes">Tasa de Interés</string>
+    <string name="plazo">Plazo en años</string>
+    <string name="monto">Monto del Préstamo</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="calcular">Calcular</string>
+    <string name="cuota">Cuota Mensual</string>
+    <string name="id">Id</string>
+    <string name="pr_stamo">Préstamo</string>
+    <string name="saldo">Saldo Restante</string>
+    <string name="pago_mensual">Pago Mensual</string>
+    <string name="pago_nextraordinario">Pago\nExtraordinario</string>
+    <string name="si">Confirmar</string>
+    <string name="no">Cancelar</string>
+    <string name="ingrese_el_monto_del_pago">Ingrese el Monto del Pago</string>
+    <string name="desea_realizar_un_npago_de_cuota_mensual">¿Desea realizar un\npago de cuota mensual?</string>
 </resources>

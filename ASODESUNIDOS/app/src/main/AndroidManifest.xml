@@ -21,6 +21,16 @@
             android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".PantallaPrincipalClienteActivity"
+            android:name=".VerPrestamo"
+            android:exported="false" />
+        <activity
+            android:name=".VerPrestamos"
+            android:exported="false" />
+        <activity
+            android:name=".CalculaCuota"
+            android:exported="false" />
+        <activity
+            android:name=".InformacionPersonal"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
