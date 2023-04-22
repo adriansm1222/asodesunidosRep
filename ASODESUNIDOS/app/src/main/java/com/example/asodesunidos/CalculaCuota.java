@@ -2,6 +2,7 @@ package com.example.asodesunidos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,6 +63,7 @@ public class CalculaCuota extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     public void tasaInteres(String prestamo){
         etInteres.setError(null);
         switch (prestamo){
@@ -123,7 +125,8 @@ public class CalculaCuota extends AppCompatActivity {
     }
 
     public double calculaCuota(float monto, int plazo){
-        return monto * ((interes * Math.pow((1+interes), plazo)) / (Math.pow((1+interes), plazo) - 1));
+        double interesMensual = interes / 12;
+        return Math.ceil((monto * interesMensual) / (1 - Math.pow(1 + interesMensual, -plazo)));
     }
 
     public void limpiar(View view){

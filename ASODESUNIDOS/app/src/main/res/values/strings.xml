@@ -22,4 +22,13 @@
     <string name="limpiar">Limpiar</string>
     <string name="calcular">Calcular</string>
     <string name="cuota">Cuota Mensual</string>
+    <string name="id">Id</string>
+    <string name="pr_stamo">Préstamo</string>
+    <string name="saldo">Saldo Restante</string>
+    <string name="pago_mensual">Pago Mensual</string>
+    <string name="pago_nextraordinario">Pago\nExtraordinario</string>
+    <string name="si">Confirmar</string>
+    <string name="no">Cancelar</string>
+    <string name="ingrese_el_monto_del_pago">Ingrese el Monto del Pago</string>
+    <string name="desea_realizar_un_npago_de_cuota_mensual">¿Desea realizar un\npago de cuota mensual?</string>
 </resources>

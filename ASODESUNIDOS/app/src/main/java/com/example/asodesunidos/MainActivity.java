@@ -39,4 +39,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CalculaCuota.class);
         startActivity(intent);
     }
+
+    public void abrirPrestamos(View vista){
+        Intent intent = new Intent(this, VerPrestamos.class);
+        startActivity(intent);
+    }
 }
