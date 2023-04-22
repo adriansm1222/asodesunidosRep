@@ -27,6 +27,7 @@ public class IngresaAhorro extends AppCompatActivity {
     Button button;
 
     Float monto;
+    Float ahorroActual;
     Float salarioCliente;
     public static final String CEDULA = "GestionaAhorros.CEDULA";
     public static final String TIPOAHORRO = "GestionaAhorros.CEDULA";
@@ -57,28 +58,35 @@ public class IngresaAhorro extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 editTextNumber.setError(null);
-                monto = Float.parseFloat(editTextNumber.getText().toString());
-
-                if(monto>=5000 || editTextNumber.getText().equals(" ")){
-                    verificaSalario();
-                    if(salarioCliente!=null){
-                        if (salarioCliente >= monto) {
-                            insertarAhorro();
-                            modificarSalario();
-                        }
-                        else{
-                            Toast.makeText(IngresaAhorro.this, "Su salario no cuenta con fondos suficientes", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                    else{
-                        Toast.makeText(IngresaAhorro.this, "Ha ocurrido un error con su usuario", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                String et_monto = editTextNumber.getText().toString();
+                if(et_monto.isEmpty()){
+                    editTextNumber.setError("Ingrese un monto");
                 }
                 else{
-                    editTextNumber.setError("Ingreese una cantidad mayor a ₡5000");
+                    monto = Float.parseFloat(editTextNumber.getText().toString());
+                    if(monto>=5000){
+                        verificaSalario();
+                        if(salarioCliente!=null){
+                            if (salarioCliente >= monto) {
+                                modificarSalario();
+                                insertarAhorro();
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(IngresaAhorro.this, "Su salario no cuenta con fondos suficientes", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                        else{
+                            Toast.makeText(IngresaAhorro.this, "Ha ocurrido un error con su usuario", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                    else{
+                        editTextNumber.setError("Ingreese una cantidad mayor a ₡5000");
+                    }
                 }
+
             }
         });
 
@@ -104,20 +112,57 @@ public class IngresaAhorro extends AppCompatActivity {
     public void modificarSalario(){
         BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
         SQLiteDatabase database = admin.getWritableDatabase();
+        verificaAhorroActual();
 
         ContentValues registro = new ContentValues();
-        Float nuevoSalario = salarioCliente-monto;
-        registro.put("salario",nuevoSalario);
+        if(ahorroActual == 0){
+            Float nuevoSalario = salarioCliente-monto;
+            registro.put("salario",nuevoSalario);
 
-        int cantidad = database.update("cliente",registro,"cedula="+usuario,null);
-        database.close();
-        if(cantidad==1){
-            Toast.makeText(this, "Ahorro ingresado correctamente", Toast.LENGTH_LONG).show();
+            int cantidad = database.update("cliente",registro,"cedula="+usuario,null);
+            database.close();
+            if(cantidad==1){
+                Toast.makeText(this, "Ahorro ingresado correctamente", Toast.LENGTH_LONG).show();
+            }
+            else{
+                Toast.makeText(this, "Ha ocurrido un error al ingreasr el ahorro", Toast.LENGTH_LONG).show();
+
+            }
         }
         else{
-            Toast.makeText(this, "Ha ocurrido un error al ingreasr el ahorro", Toast.LENGTH_LONG).show();
+            if(ahorroActual>=monto){
+                Float diferencia = ahorroActual-monto;
+                Float nuevoSalario = salarioCliente+diferencia;
+                registro.put("salario",nuevoSalario);
+                int cantidad = database.update("cliente",registro,"cedula="+usuario,null);
+                database.close();
+                if(cantidad!=1){
+                    Toast.makeText(this, "Ha ocurrido un error al ingreasr el ahorro", Toast.LENGTH_LONG).show();
+                }
+
+            }
+            else{
+                Float diferencia = monto - ahorroActual;
+                Float nuevoSalario = salarioCliente-diferencia;
+                registro.put("salario",nuevoSalario);
+                int cantidad = database.update("cliente",registro,"cedula="+usuario,null);
+                database.close();
+                if(cantidad==1){
+                    Toast.makeText(this, "Ahorro ingresado correctamente", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(this, "Ha ocurrido un error al ingreasr el ahorro", Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+
+
 
         }
+
+
+
 
     }
 
@@ -125,13 +170,63 @@ public class IngresaAhorro extends AppCompatActivity {
         BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
         SQLiteDatabase database = admin.getWritableDatabase();
 
-        ContentValues registro = new ContentValues();
-        registro.put("cedulaCliente",usuario);
-        registro.put("monto",monto);
-        registro.put("tipo",tipoAhorro);
-        database.insert("ahorro",null,registro);
-        database.close();
+        if(existeAhorro()){
+            ContentValues registro = new ContentValues();
+            registro.put("monto",monto);
+            int cantidad = database.update("ahorro",registro,"cedulaCliente="+usuario+" and tipo="+tipoAhorro,null);
+            database.close();
+            if(cantidad==1){
+                Toast.makeText(this, "Ahorro ingresado correctamente", Toast.LENGTH_LONG).show();
+            }
+            else{
+                Toast.makeText(this, "Ha ocurrido un error al ingreasr el ahorro", Toast.LENGTH_LONG).show();
 
+            }
+        }
+        else{
+            ContentValues registro = new ContentValues();
+            registro.put("cedulaCliente",usuario);
+            registro.put("monto",monto);
+            registro.put("tipo",tipoAhorro);
+            database.insert("ahorro",null,registro);
+            database.close();
+        }
+
+
+    }
+
+    public boolean existeAhorro(){
+        BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
+        SQLiteDatabase database = admin.getWritableDatabase();
+
+
+        Cursor fila = database.rawQuery("select monto from ahorro where cedulaCliente = " + Integer.parseInt(usuario) + " and tipo = " + tipoAhorro, null);
+        if (fila.moveToFirst()) {
+            ahorroActual = fila.getFloat(0);
+            database.close();
+            return true;
+        }
+        else{
+            ahorroActual = Float.valueOf(0);
+            database.close();
+            return false;
+        }
+    }
+
+
+    public void verificaAhorroActual(){
+        BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
+        SQLiteDatabase database = admin.getWritableDatabase();
+
+
+        Cursor fila = database.rawQuery("select monto from ahorro where cedulaCliente = " + Integer.parseInt(usuario) + " and tipo = " + tipoAhorro, null);
+        if (fila.moveToFirst()) {
+            ahorroActual = fila.getFloat(0);
+        }
+        else{
+            ahorroActual = Float.valueOf(0);
+        }
+        database.close();
     }
 
     public void tituloVentana(){

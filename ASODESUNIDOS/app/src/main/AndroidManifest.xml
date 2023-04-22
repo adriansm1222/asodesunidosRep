@@ -17,7 +17,8 @@
             android:parentActivityName="GestionaAhorros"/>
         <activity
             android:name=".GestionaAhorros"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".PantallaPrincipalClienteActivity"
             android:exported="false" />
