@@ -12,6 +12,17 @@
         android:theme="@style/Theme.ASODESUNIDOS"
         tools:targetApi="31">
         <activity
+            android:name=".Asignar_prestamos"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarCliente"
+            android:exported="false" />
+        <activity
+            android:name=".PantallaAdministrativa"
+            android:exported="false"
+            android:label="@string/title_activity_pantalla_administrativa"
+            android:theme="@style/Theme.ASODESUNIDOS.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
