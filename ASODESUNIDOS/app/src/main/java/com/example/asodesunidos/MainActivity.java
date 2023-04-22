@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         //btn = findViewById(R.id.btnInfo);
     }
 
+    public void iniciarSesion(View view){
+        Intent intent = new Intent(this, PantallaAdministrativa.class);
+        startActivity(intent);
+    }
+
     public void consultar(){
         BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
         SQLiteDatabase baseDatos = admin.getWritableDatabase();

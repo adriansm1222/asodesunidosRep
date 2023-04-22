@@ -24,4 +24,13 @@
     <style name="DatePickerTheme.ButtonBarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/buttons</item>
     </style>
+
+    <style name="Theme.ASODESUNIDOS.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ASODESUNIDOS.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ASODESUNIDOS.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
