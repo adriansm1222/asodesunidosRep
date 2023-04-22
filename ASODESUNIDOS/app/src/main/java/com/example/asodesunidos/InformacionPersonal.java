@@ -37,7 +37,7 @@ public class InformacionPersonal extends AppCompatActivity {
         setContentView(R.layout.activity_informacion_personal);
         String []opciones = {"Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a", "Unión Libre"};
         Intent intent = getIntent();
-        String cedula = intent.getStringExtra(MainActivity.CEDULA);
+        String cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
 
         //Inicializar componentes
         spEstado = findViewById(R.id.spEstado);

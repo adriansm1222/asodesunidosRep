@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -26,13 +27,16 @@ public class VerPrestamos extends AppCompatActivity {
     RecyclerView recyclerView;
     PrestamoAdapter adapter;
     List<PrestamoModel> prestamosCliente;
+    String cedula;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_prestamos);
+        Intent intent = getIntent();
+        cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
         recyclerView = findViewById(R.id.recycler_view);
         prestamosCliente = new ArrayList<>();
-        consultarPrestamos("231304429");
+        consultarPrestamos(cedula);
         setRecyclerView();
     }
 

@@ -22,11 +22,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String CEDULA = "MainActivity.CEDULA";
 
     @SuppressLint("MissingInflatedId")
-
-public class MainActivity extends AppCompatActivity {
-
-    Button btn;
-    public static final String CEDULA = "MainActivity.CEDULA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,34 +31,13 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         iniciarSesionBtn = findViewById(R.id.iniciarSesionBtn);
 
-        consultar();
-        btn = findViewById(R.id.btnInfo);
+        //consultar();
+        //btn = findViewById(R.id.btnInfo);
     }
 
     public void consultar(){
         BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
-
-    }
-
-    public void click(View vista){
-        abrirInfo();
-    }
-
-    public void abrirInfo(){
-        Intent intent = new Intent(this, InformacionPersonal.class);
-        intent.putExtra(CEDULA, "231304429");
-        startActivity(intent);
-    }
-
-    public void abrirConsulta(View vista){
-        Intent intent = new Intent(this, CalculaCuota.class);
-        startActivity(intent);
-    }
-
-    public void abrirPrestamos(View vista){
-        Intent intent = new Intent(this, VerPrestamos.class);
-        startActivity(intent);
     }
 
     public void onClickIniciarSesion(View view){ //Consultar BD
@@ -99,10 +73,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Admin", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent intent = new Intent(this,PantallaPrincipalClienteActivity.class);
+                    Intent intent = new Intent(this, PantallaPrincipalClienteActivity.class);
                     intent.putExtra(CEDULA, et_usuario);
                     startActivity(intent);
-
                 }
             }
             else{
@@ -114,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(this, "Datos no encontrados", Toast.LENGTH_LONG).show();
         }
-
-
         database.close();
     }
 

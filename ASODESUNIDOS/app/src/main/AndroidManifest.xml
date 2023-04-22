@@ -21,6 +21,9 @@
             android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".PantallaPrincipalClienteActivity"
+            android:exported="false"
+            />
+        <activity
             android:name=".VerPrestamo"
             android:exported="false" />
         <activity
