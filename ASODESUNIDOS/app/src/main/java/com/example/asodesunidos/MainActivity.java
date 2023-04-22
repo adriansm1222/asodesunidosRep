@@ -31,18 +31,6 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         iniciarSesionBtn = findViewById(R.id.iniciarSesionBtn);
 
-        //consultar();
-        //btn = findViewById(R.id.btnInfo);
-    }
-
-    public void iniciarSesion(View view){
-        Intent intent = new Intent(this, PantallaAdministrativa.class);
-        startActivity(intent);
-    }
-
-    public void consultar(){
-        BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
-        SQLiteDatabase baseDatos = admin.getWritableDatabase();
     }
 
     public void onClickIniciarSesion(View view){ //Consultar BD
@@ -73,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
             if(et_contrasenia.equals("1234")){
                 if(responseTipo.equals("0")){
-                    //Intent intent = new Intent(this,)
-                    //startActivity(intent);
-                    Toast.makeText(this, "Admin", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, PantallaAdministrativa.class);
+                    startActivity(intent);
                 }
                 else{
                     Intent intent = new Intent(this, PantallaPrincipalClienteActivity.class);

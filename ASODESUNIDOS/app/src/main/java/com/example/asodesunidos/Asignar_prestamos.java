@@ -174,19 +174,19 @@ public class Asignar_prestamos extends AppCompatActivity {
 
         switch (tipo){
             case 1:{
-                interes = 7.5F;
+                interes = 7.5F/100;
                 break;
             }
             case 2:{
-                interes = 8.0F;
+                interes = 8.0F/100;
                 break;
             }
             case 3:{
-                interes = 10.0F;
+                interes = 10.0F/100;
                 break;
             }
             case 4:{
-                interes = 12.0F;
+                interes = 12.0F/100;
                 break;
             }
 
