@@ -13,12 +13,10 @@
         tools:targetApi="31">
         <activity
             android:name=".IngresaAhorro"
-            android:exported="false"
-            android:parentActivityName="GestionaAhorros"/>
+            android:exported="false"/>
         <activity
             android:name=".GestionaAhorros"
-            android:exported="false"
-            android:parentActivityName="PantallaPrincipalClienteActivity"/>
+            android:exported="false" />
         <activity
             android:name=".PantallaPrincipalClienteActivity"
             android:exported="false"
