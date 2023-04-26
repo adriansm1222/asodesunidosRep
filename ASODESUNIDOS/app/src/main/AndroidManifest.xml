@@ -25,19 +25,24 @@
             />
         <activity
             android:name=".VerPrestamo"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".VerPrestamos"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".CalculaCuota"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".InformacionPersonal"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName="PantallaPrincipalClienteActivity"/>
         <activity
             android:name=".Asignar_prestamos"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".AgregarCliente"
             android:exported="false" />
