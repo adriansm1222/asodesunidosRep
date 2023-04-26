@@ -43,5 +43,8 @@ public class PantallaPrincipalClienteActivity extends AppCompatActivity {
         intent.putExtra(CEDULA, usuario);
         startActivity(intent);
     }
+    public void logOut(View view){
+        finish();
+    }
 
 }
