@@ -8,10 +8,10 @@
     android:background="@color/background">
 
     <LinearLayout
-        android:layout_width="323dp"
-        android:layout_height="246dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="128dp"
+        android:layout_width="330dp"
+        android:layout_height="332dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -28,9 +28,18 @@
             android:id="@+id/prestamo"
             android:layout_width="match_parent"
             android:layout_height="72dp"
-            android:layout_marginTop="80sp"
+            android:layout_marginTop="60sp"
             android:onClick="asignarPrestamo"
             android:text="Asignar Prestamo"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="60sp"
+            android:onClick="cerrarSesion"
+            android:text="Cerrar Sesion"
             android:textSize="20sp" />
     </LinearLayout>
 

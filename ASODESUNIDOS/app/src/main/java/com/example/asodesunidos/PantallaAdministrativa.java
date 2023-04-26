@@ -24,4 +24,9 @@ public class PantallaAdministrativa extends AppCompatActivity {
         Intent intent = new Intent(this, Asignar_prestamos.class);
         startActivity(intent);
     }
+
+    public void cerrarSesion(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

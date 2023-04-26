@@ -33,9 +33,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="1"
+                android:backgroundTint="#f1c9a0"
                 android:ems="10"
                 android:inputType="number"
-                android:textColor="#FFFFFF" />
+                android:textColor="#f1c9a0" />
         </TableRow>
 
         <TableRow
@@ -56,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:background="#194743"
+                android:textColor="#f1c9a0"
                 android:textSize="20sp" />
 
         </TableRow>
@@ -78,6 +80,7 @@
                 android:layout_width="216dp"
                 android:layout_height="35dp"
                 android:background="#194743"
+                android:textColor="#f1c9a0"
                 android:textSize="20sp" />
 
         </TableRow>
@@ -145,9 +148,11 @@
                 android:id="@+id/creditoPr"
                 android:layout_width="126dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="#f1c9a0"
                 android:ems="10"
                 android:inputType="number"
                 android:textAlignment="center"
+                android:textColor="#f1c9a0"
                 android:textSize="20sp" />
 
             <Spinner
@@ -182,7 +187,7 @@
             android:id="@+id/calculo1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <TextView
                 android:id="@+id/textView12"
@@ -216,7 +221,7 @@
             android:id="@+id/calculo2"
             android:layout_width="match_parent"
             android:layout_height="50sp"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <TextView
                 android:id="@+id/cuotaPr"
@@ -235,7 +240,6 @@
                 android:layout_marginLeft="2sp"
                 android:background="#194743"
                 android:gravity="center"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="#f1c9a0"
                 android:textSize="20sp" />
@@ -247,7 +251,6 @@
                 android:layout_marginLeft="2sp"
                 android:background="#194743"
                 android:gravity="center"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="#f1c9a0"
                 android:textSize="20sp" />
@@ -256,22 +259,11 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/regresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="40dp"
-        android:text="Regresar"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tablaPrestamo" />
-
-    <Button
         android:id="@+id/asignar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="77dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="152dp"
         android:onClick="asignarPrestamo"
         android:text="Asignar"
         android:visibility="invisible"

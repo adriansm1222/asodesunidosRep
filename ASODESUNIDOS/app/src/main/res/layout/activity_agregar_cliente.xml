@@ -33,9 +33,10 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_span="1"
+          android:backgroundTint="#f1c9a0"
           android:ems="10"
           android:inputType="number"
-          android:textColor="#FFFFFF" />
+          android:textColor="#f1c9a0" />
     </TableRow>
 
     <TableRow
@@ -55,8 +56,10 @@
           android:id="@+id/nombreField"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:backgroundTint="#f1c9a0"
           android:ems="10"
-          android:inputType="textPersonName" />
+          android:inputType="textPersonName"
+          android:textColor="#f1c9a0" />
     </TableRow>
 
     <TableRow
@@ -76,8 +79,10 @@
           android:id="@+id/salarioField"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:backgroundTint="#f1c9a0"
           android:ems="10"
-          android:inputType="number" />
+          android:inputType="number"
+          android:textColor="#f1c9a0" />
     </TableRow>
 
     <TableRow
@@ -97,8 +102,10 @@
           android:id="@+id/telefonoField"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:backgroundTint="#f1c9a0"
           android:ems="10"
-          android:inputType="number" />
+          android:inputType="number"
+          android:textColor="#f1c9a0" />
     </TableRow>
 
     <TableRow
@@ -118,11 +125,12 @@
           android:id="@+id/nacimientoField"
           android:layout_width="wrap_content"
           android:layout_height="match_parent"
-          android:ems="10"
-          android:inputType="textPersonName"
-          android:focusable="false"
+          android:backgroundTint="#f1c9a0"
           android:clickable="true"
-          android:textColor="#FBF8F8" />
+          android:ems="10"
+          android:focusable="false"
+          android:inputType="textPersonName"
+          android:textColor="#f1c9a0" />
     </TableRow>
 
     <TableRow
@@ -167,8 +175,10 @@
           android:id="@+id/direccionField"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:backgroundTint="#f1c9a0"
           android:ems="10"
-          android:inputType="textMultiLine" />
+          android:inputType="textMultiLine"
+          android:textColor="#f1c9a0" />
 
       <TableRow
           android:layout_width="match_parent"
@@ -182,22 +192,13 @@
   </TableLayout>
 
   <Button
-      android:id="@+id/button4"
-      android:layout_width="158dp"
-      android:layout_height="58dp"
-      android:layout_marginStart="32dp"
-      android:layout_marginBottom="44dp"
-      android:text="Button"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
-  <Button
       android:id="@+id/guardar"
       android:layout_width="158dp"
       android:layout_height="56dp"
-      android:layout_marginEnd="36dp"
-      android:layout_marginBottom="44dp"
-      android:text="Button"
+      android:layout_marginEnd="124dp"
+      android:layout_marginBottom="40dp"
+      android:text="Agregar"
+      android:textSize="18sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 

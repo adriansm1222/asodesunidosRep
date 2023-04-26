@@ -62,6 +62,15 @@ public class AgregarCliente extends AppCompatActivity {
         });
     }
 
+    public void limpiar(){
+        cedula.setText("");
+        nombre.setText("");
+        nacimiento.setText("");
+        direccion.setText("");
+        telefono.setText("");
+        salario.setText("");
+    }
+
     private void showDatePickerDialog() {
         DatePickerDialog.OnDateSetListener onNewDateListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -117,16 +126,19 @@ public class AgregarCliente extends AppCompatActivity {
                 cliente.put("fechaNacimiento", fNacimiento);
                 cliente.put("estadoCivil", eCivilBD);
                 cliente.put("direccion", direccionBD);
-                cliente.put("tipo", 2);
+                cliente.put("tipo", 1);
                 bd.insert("cliente",null,cliente);
                 bd.close();
                 Toast.makeText(this,"CLIENTE INGRESADO EXITOSAMENTE", Toast.LENGTH_SHORT).show();
+                limpiar();
             }catch(SQLiteConstraintException e){
                 Toast.makeText(this,"ERROR AL INGRESAR CLIENTE: Ya existe un cliente con ese numero de cedula", Toast.LENGTH_SHORT).show();
+                limpiar();
             }
 
         }else{
             Toast.makeText(this,"ERROR AL INGRESAR CLIENTE: DEBE LLENAR TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show();
+            limpiar();
         }
     }
 
