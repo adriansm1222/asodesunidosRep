@@ -61,4 +61,21 @@
     <string name="ver">Ver</string>
     <string name="saldo1">Saldo</string>
     <string name="monto1">Monto</string>
+    <string name="marchamo">Marchamo</string>
+    <string name="volver1">. . . . . . . . . . . . . .</string>
+    <string name="_0">₡0</string>
+    <string name="buttonAddmarchamo">+</string>
+    <string name="extraordinario">Extraordinario</string>
+    <string name="tv12">. . . . . . . . . . . . . .</string>
+    <string name="_01">₡0</string>
+    <string name="todo">TODO</string>
+    <string name="gestiona_tus_ahorros_mensuales">Gestiona tus ahorros mensuales:</string>
+    <string name="navide_o">Navideño</string>
+    <string name="tv6">. . . . . . . . . . . . . .</string>
+    <string name="_02">₡0</string>
+    <string name="ver_mis_pr_stamos">Ver mis préstamos</string>
+    <string name="gestionar_mis_ahorros">Gestionar mis ahorros</string>
+    <string name="calcula_cuota">Calcula cuota</string>
+    <string name="informaci_n_personal">Información personal</string>
+    <string name="cerrar_cesi_n">Cerrar cesión</string>
 </resources>
