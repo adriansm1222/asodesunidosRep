@@ -1,9 +1,5 @@
 package com.example.asodesunidos;
 
-import static java.lang.Math.ceil;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
@@ -19,12 +15,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class Asignar_prestamos extends AppCompatActivity {
 
-    Button buscar, regresar, asignar;
+    Button buscar;
+    Button asignar;
 
     EditText cedulaCl, credito;
 
@@ -55,10 +54,10 @@ public class Asignar_prestamos extends AppCompatActivity {
         buscar = findViewById(R.id.buscarCliente);
         asignar = findViewById(R.id.asignar);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.layout_spinner, plazos);
         plazo.setAdapter(adapter);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                 R.layout.layout_spinner, tipos);
         tipo.setAdapter(adapter2);
     }

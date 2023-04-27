@@ -21,8 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:onClick="agregarCliente"
-            android:text="Agregar Cliente"
-            android:textSize="20sp" />
+            android:text="@string/agregar_cliente"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/prestamo"
@@ -30,8 +31,9 @@
             android:layout_height="72dp"
             android:layout_marginTop="60sp"
             android:onClick="asignarPrestamo"
-            android:text="Asignar Prestamo"
-            android:textSize="20sp" />
+            android:text="@string/asignar_prestamo"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/logout"
@@ -39,8 +41,9 @@
             android:layout_height="72dp"
             android:layout_marginTop="60sp"
             android:onClick="cerrarSesion"
-            android:text="Cerrar Sesion"
-            android:textSize="20sp" />
+            android:text="@string/cerrar_sesion"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize,VisualLintBounds" />
     </LinearLayout>
 
     <ImageView
@@ -51,5 +54,6 @@
         android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/administrador" />
+        app:srcCompat="@mipmap/administrador"
+        tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

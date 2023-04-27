@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -23,5 +24,6 @@
         android:layout_marginBottom="4dp"
         android:textSize="20sp"
         android:textColorHint="@color/text"
-        android:hint="@string/ingrese_el_monto_del_pago"/>
+        android:hint="@string/ingrese_el_monto_del_pago"
+        tools:ignore="Autofill" />
 </LinearLayout>

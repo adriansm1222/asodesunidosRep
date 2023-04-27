@@ -57,7 +57,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.327"
         android:focusable="false"
-        android:clickable="true"/>
+        android:clickable="true"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/etTelefono"
@@ -77,7 +78,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.187" />
+        app:layout_constraintVertical_bias="0.187"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/etSalario"
@@ -96,7 +98,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
+        app:layout_constraintVertical_bias="0.257"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/etNombre"
@@ -115,7 +118,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintVertical_bias="0.117"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/etDireccion"
@@ -134,7 +138,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
+        app:layout_constraintVertical_bias="0.696"
+        tools:ignore="Autofill" />
 
     <Button
         android:id="@+id/btnVolver"

@@ -1,13 +1,10 @@
 package com.example.asodesunidos;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -15,9 +12,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class AgregarCliente extends AppCompatActivity {
 
-    Button regresar, guardar;
+    Button guardar;
     EditText cedula, direccion, telefono, nacimiento, nombre, salario;
     Spinner estadoCivil;
 
@@ -38,26 +37,18 @@ public class AgregarCliente extends AppCompatActivity {
         estadoCivil = findViewById(R.id.civilField);
         guardar = findViewById(R.id.guardar);
 
-        guardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                insertarCliente();
-            }
-        });
+        guardar.setOnClickListener(view -> insertarCliente());
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.layout_spinner, opciones);
         estadoCivil.setAdapter(adapter);
 
         //Configuracion etFecha
-        nacimiento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.nacimientoField:
-                        showDatePickerDialog();
-                        break;
-                }
+        nacimiento.setOnClickListener(view -> {
+            switch (view.getId()) {
+                case R.id.nacimientoField:
+                    showDatePickerDialog();
+                    break;
             }
         });
     }

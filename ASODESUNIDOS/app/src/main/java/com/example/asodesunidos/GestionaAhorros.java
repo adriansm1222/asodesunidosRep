@@ -2,6 +2,7 @@ package com.example.asodesunidos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -64,26 +65,10 @@ public class GestionaAhorros extends AppCompatActivity {
     }
 
     public void addListeners(){
-        buttonAddNavideño.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ingresaAhorro("1");
-            }
-        });
-        buttonAddEscolar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ingresaAhorro("2");
-            }
-        });
-        buttonAddMarchamo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ingresaAhorro("3");
-            }
-        });
-        buttonAddExtra.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ingresaAhorro("4");
-            }
-        });
+        buttonAddNavideño.setOnClickListener(v -> ingresaAhorro("1"));
+        buttonAddEscolar.setOnClickListener(v -> ingresaAhorro("2"));
+        buttonAddMarchamo.setOnClickListener(v -> ingresaAhorro("3"));
+        buttonAddExtra.setOnClickListener(v -> ingresaAhorro("4"));
 
 
     }
@@ -105,6 +90,7 @@ public class GestionaAhorros extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     public void consultarPrestamosCliente(){
 
         BaseDatos admin = new BaseDatos(this, "asodesunidos", null, 1);
@@ -142,9 +128,8 @@ public class GestionaAhorros extends AppCompatActivity {
 
             }while(fila.moveToNext());
         }
-
-
-
+        fila.close();
+        database.close();
     }
 
 

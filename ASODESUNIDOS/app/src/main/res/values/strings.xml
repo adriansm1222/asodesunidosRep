@@ -40,4 +40,25 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="cedula">Cedula:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="salario1">Salario:</string>
+    <string name="buscar">Buscar</string>
+    <string name="credito">Credito</string>
+    <string name="plazo1">Plazo</string>
+    <string name="tipo">Tipo</string>
+    <string name="calcular1">Calcular</string>
+    <string name="cuota1">Cuota</string>
+    <string name="total">Total</string>
+    <string name="interes1">Interes</string>
+    <string name="asignar">Asignar</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="agregar_cliente">Agregar Cliente</string>
+    <string name="asignar_prestamo">Asignar Prestamo</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="ver">Ver</string>
+    <string name="saldo1">Saldo</string>
+    <string name="monto1">Monto</string>
 </resources>
