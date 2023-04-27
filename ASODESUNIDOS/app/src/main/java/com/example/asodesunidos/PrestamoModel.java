@@ -1,9 +1,10 @@
 package com.example.asodesunidos;
 
 public class PrestamoModel {
-    String id, cedulaCliente, monto, periodo, tipo, mensualidad, saldo;
+    String id, cedulaCliente, periodo, tipo, mensualidad;
+    float saldo, monto;
 
-    public PrestamoModel(String id, String cedulaCliente, String monto, String periodo, String tipo, String mensualidad, String saldo) {
+    public PrestamoModel(String id, String cedulaCliente, float monto, String periodo, String tipo, String mensualidad, float saldo) {
         this.id = id;
         this.cedulaCliente = cedulaCliente;
         this.monto = monto;
@@ -21,9 +22,7 @@ public class PrestamoModel {
         return cedulaCliente;
     }
 
-    public String getMonto() {
-        return monto;
-    }
+
 
     public String getPeriodo() {
         return periodo;
@@ -37,7 +36,11 @@ public class PrestamoModel {
         return mensualidad;
     }
 
-    public String getSaldo() {
+    public float getSaldo() {
         return saldo;
+    }
+
+    public float getMonto() {
+        return monto;
     }
 }

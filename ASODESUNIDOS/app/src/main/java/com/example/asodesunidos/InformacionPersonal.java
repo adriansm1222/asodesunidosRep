@@ -28,7 +28,7 @@ public class InformacionPersonal extends AppCompatActivity {
     Spinner spEstado;
     EditText etNombre, etTelefono, etSalario, etFecha, etDireccion;
     Button btnVolver, btnGuardar;
-
+    String cedula;
     ArrayList<String> infoCliente = new ArrayList<>();
     ArrayList<EditText> editTexts = new ArrayList<>();
     @Override
@@ -37,7 +37,7 @@ public class InformacionPersonal extends AppCompatActivity {
         setContentView(R.layout.activity_informacion_personal);
         String []opciones = {"Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a", "Unión Libre"};
         Intent intent = getIntent();
-        String cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
+        cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
 
         //Inicializar componentes
         spEstado = findViewById(R.id.spEstado);
@@ -183,6 +183,13 @@ public class InformacionPersonal extends AppCompatActivity {
                 Toast.makeText(this, "No se han modificado los datos", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void volver(View view){
+        Intent intent = new Intent(this, PantallaPrincipalClienteActivity.class);
+        intent.putExtra(PantallaPrincipalClienteActivity.CEDULA, cedula);
+        startActivity(intent);
+        finish();
     }
 
     public boolean camposVacios(){

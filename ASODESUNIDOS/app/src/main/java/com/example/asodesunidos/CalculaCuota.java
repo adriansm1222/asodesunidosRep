@@ -3,6 +3,7 @@ package com.example.asodesunidos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,12 +25,15 @@ public class CalculaCuota extends AppCompatActivity {
     Button btnCalcular, btnLimpiar;
 
     double interes;
+    String cedula;
+    public static final String CEDULA = "CalculaCuota.CEDULA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calcula_cuota);
-
+        Intent intent = getIntent();
+        cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
         //Inicializar componentes
         tvCalculaCuota = findViewById(R.id.tvCalculaCuota);
         tvPrestamo = findViewById(R.id.tvPrestamo);
@@ -104,6 +108,13 @@ public class CalculaCuota extends AppCompatActivity {
             DecimalFormat format = new DecimalFormat("#.00");
             tvCuota.setText(String.format("₡%s", format.format(calculaCuota(monto, plazo))));
         }
+    }
+
+    public void volver(View view){
+        Intent intent = new Intent(this, PantallaPrincipalClienteActivity.class);
+        intent.putExtra(PantallaPrincipalClienteActivity.CEDULA, cedula);
+        startActivity(intent);
+        finish();
     }
 
     public boolean camposVacios(){

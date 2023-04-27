@@ -27,18 +27,24 @@ public class VerPrestamos extends AppCompatActivity {
     RecyclerView recyclerView;
     PrestamoAdapter adapter;
     List<PrestamoModel> prestamosCliente;
+    public static final String CEDULA = "VerPrestamos.CEDULA";
     String cedula;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_prestamos);
         Intent intent = getIntent();
-        cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
+        if(intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA) != null){
+            cedula = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
+        }else{
+            cedula = intent.getStringExtra(VerPrestamo.CEDULA);
+        }
         recyclerView = findViewById(R.id.recycler_view);
         prestamosCliente = new ArrayList<>();
         consultarPrestamos(cedula);
         setRecyclerView();
     }
+
 
     private void setRecyclerView() {
         recyclerView.setHasFixedSize(true);
@@ -52,9 +58,16 @@ public class VerPrestamos extends AppCompatActivity {
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
         Cursor fila = baseDatos.rawQuery("select * from prestamo where cedulaCliente = " + cedula, null);
         while (fila.moveToNext()) {
-            prestamosCliente.add(new PrestamoModel(fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getString(5), fila.getString(6)));
+            prestamosCliente.add(new PrestamoModel(fila.getString(0), fila.getString(1), fila.getFloat(2), fila.getString(3), fila.getString(4), fila.getString(5), fila.getFloat(6)));
         }
         baseDatos.close();
+    }
+
+    public void volver(View view){
+        Intent intent = new Intent(this, PantallaPrincipalClienteActivity.class);
+        intent.putExtra(PantallaPrincipalClienteActivity.CEDULA, cedula);
+        startActivity(intent);
+        finish();
     }
 
 }

@@ -18,32 +18,43 @@ public class PantallaPrincipalClienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_principal_cliente);
 
         Intent intent = getIntent();
-        usuario = intent.getStringExtra(MainActivity.CEDULA);
+        if(intent.getStringExtra(CEDULA) != null){
+            usuario = intent.getStringExtra(CEDULA);
+        }else {
+            usuario = intent.getStringExtra(MainActivity.CEDULA);
+        }
     }
 
     public void verPrestamos(View view){
         Intent intent = new Intent(this, VerPrestamos.class);
         intent.putExtra(CEDULA, usuario);
         startActivity(intent);
+        finish();
     }
 
     public void gestionarAhorros(View view){
         Intent intent = new Intent(this, GestionaAhorros.class);
         intent.putExtra(CEDULA, usuario);
         startActivity(intent);
+        finish();
     }
 
     public void calculaCuota(View view){
         Intent intent = new Intent(this, CalculaCuota.class);
+        intent.putExtra(CEDULA, usuario);
         startActivity(intent);
+        finish();
     }
 
     public void infoPersonal(View view){
         Intent intent = new Intent(this, InformacionPersonal.class);
         intent.putExtra(CEDULA, usuario);
         startActivity(intent);
+        finish();
     }
     public void logOut(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 

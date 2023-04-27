@@ -18,16 +18,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class VerPrestamo extends AppCompatActivity {
     TextView tvTipo, tvPlazo, tvInteres, tvMonto, tvSaldo, tvCuota;
-    Button btnPagoM, btnPagoE;
+    Button btnPagoM, btnVolver;
     Float saldo, saldoAnterior;
     Float cuota;
     Integer cantCuotas;
     Double interes;
     String prestamo;
+    String cedula;
+    public static final String CEDULA = "VerPrestamo.CEDULA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,7 @@ public class VerPrestamo extends AppCompatActivity {
         tvSaldo = findViewById(R.id.tvSaldoE);
         tvCuota = findViewById(R.id.tvCuotaE);
         btnPagoM = findViewById(R.id.btnPagoM);
-        btnPagoE = findViewById(R.id.btnPagoE);
+        btnVolver = findViewById(R.id.btnVolver);
         consultarPrestamo(prestamo);
         prestamoPago();
     }
@@ -52,12 +56,15 @@ public class VerPrestamo extends AppCompatActivity {
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
         Cursor fila = baseDatos.rawQuery("select * from prestamo where id = " + id, null);
         if(fila.moveToFirst()){
-            tvMonto.setText(fila.getString(2));
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            decimalFormat.setRoundingMode(RoundingMode.DOWN);
+            cedula = fila.getString(1);
+            tvMonto.setText(decimalFormat.format(fila.getFloat(2)));
             tvPlazo.setText(fila.getString(3));
             tvTipo.setText(tipoPrestamo(fila.getString(4)));
             tvInteres.setText(tasaInteres(tvTipo.getText().toString()));
             tvCuota.setText(fila.getString(5));
-            tvSaldo.setText(fila.getString(6));
+            tvSaldo.setText(decimalFormat.format(fila.getFloat(6)));
             cuota = Float.parseFloat(fila.getString(5));
             saldo = Float.parseFloat(fila.getString(6));
             cantCuotas = Integer.parseInt(fila.getString(7));
@@ -106,10 +113,12 @@ public class VerPrestamo extends AppCompatActivity {
         LayoutInflater inflater = this.getLayoutInflater();
         builder.setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                decimalFormat.setRoundingMode(RoundingMode.DOWN);
                 saldo -= cuota;
                 cantCuotas++;
                 actualizarPrestamo();
-                tvSaldo.setText(saldo.toString());
+                tvSaldo.setText(decimalFormat.format(saldo));
                 prestamoPago();
             }
         });
@@ -125,53 +134,15 @@ public class VerPrestamo extends AppCompatActivity {
         dialog.show();
     }
 
-    public void pagoExtraordinario(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        View vistaDialogo = inflater.inflate(R.layout.layout_dialog_extra, null);
-        EditText pago = vistaDialogo.findViewById(R.id.pago);
-        builder.setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                if(!pago.getText().toString().isEmpty() && !pago.getText().toString().equals("0")){
-                    Float montoPago = Float.parseFloat(pago.getText().toString());
-                    saldoAnterior = saldo;
-                    saldo -= montoPago;
-                    int plazo = Integer.parseInt(tvPlazo.getText().toString());
-                    double cuotaF = calculaCuota(saldoAnterior, cuotasRestantes(plazo));
-                    cuota = (float) cuotaF;
-                    actualizarPrestamo();
-                    tvSaldo.setText(saldo.toString());
-                    tvCuota.setText(cuota.toString());
-                    prestamoPago();
-                }
-            }
-        });
-        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
-            }
-        });
-        // Set other dialog properties
-        builder.setView(vistaDialogo);
-        // Create the AlertDialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    public void volver(View view){
+        Intent intent = new Intent(this, VerPrestamos.class);
+        intent.putExtra(PantallaPrincipalClienteActivity.CEDULA, cedula);
+        startActivity(intent);
+        finish();
     }
-
-    public double calculaCuota(float monto, int plazo){
-        double interesMensual = interes / 12;
-        return (monto * interesMensual) / (1 - Math.pow(1 + interesMensual, -plazo));
-    }
-
-    public int cuotasRestantes(int plazo){
-        int plazoMeses = plazo*12;
-        return plazoMeses - cantCuotas;
-    }
-
     public void prestamoPago(){
         if(saldo == 0.0){
             btnPagoM.setEnabled(false);
-            btnPagoE.setEnabled(false);
             Toast.makeText(this, "Préstamo pagado!", Toast.LENGTH_SHORT).show();
         }
     }

@@ -212,11 +212,11 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/btnPagoE"
+        android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:onClick="pagoExtraordinario"
-        android:text="@string/pago_nextraordinario"
+        android:onClick="volver"
+        android:text="@string/volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

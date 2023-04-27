@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.ViewHolder> {
@@ -37,10 +39,12 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.ViewHo
     public void onBindViewHolder(@NonNull PrestamoAdapter.ViewHolder holder, int position) {
         if(prestamos != null && prestamos.size() > 0){
             PrestamoModel model = prestamos.get(position);
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            decimalFormat.setRoundingMode(RoundingMode.DOWN);
             holder.tvId.setText(model.getId());
             holder.tvTipo.setText(tipoPrestamo(model.getTipo()));
-            holder.tvMonto.setText(model.getMonto());
-            holder.tvSaldo.setText(model.getSaldo());
+            holder.tvMonto.setText(decimalFormat.format(model.getMonto()));
+            holder.tvSaldo.setText(decimalFormat.format(model.getSaldo()));
             if(position % 2 != 0){
                 holder.trRecycler.setBackgroundColor(ContextCompat.getColor(context, R.color.spinnerbg));
             }
