@@ -93,11 +93,13 @@ public class IngresaAhorro extends AppCompatActivity {
 
             }
         });
-        buttonVolver.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                finish();
-            }
-        });
+    }
+
+    public void volver(View view){
+        Intent intent = new Intent(this, GestionaAhorros.class);
+        intent.putExtra(PantallaPrincipalClienteActivity.CEDULA, usuario);
+        startActivity(intent);
+        finish();
     }
 
     public void verificaSalario(){

@@ -56,16 +56,6 @@ public class GestionaAhorros extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 01 && resultCode == RESULT_OK) {
-            String resultado = data.getStringExtra("resultado");
-            // hacer algo con el resultado devuelto
-        }
-    }
-
 
     @Override
     protected void onResume() {
@@ -95,12 +85,14 @@ public class GestionaAhorros extends AppCompatActivity {
             }
         });
 
-        buttonVolver.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
+    }
+
+    public void volver(View view){
+        Intent intent = new Intent(this, PantallaPrincipalClienteActivity.class);
+        intent.putExtra(PantallaPrincipalClienteActivity.CEDULA, usuario);
+        startActivity(intent);
+        finish();
     }
 
 

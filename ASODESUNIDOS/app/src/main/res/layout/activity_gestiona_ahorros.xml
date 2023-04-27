@@ -296,7 +296,8 @@
         android:layout_marginTop="21dp"
         android:text="Volver"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        android:onClick="volver"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
