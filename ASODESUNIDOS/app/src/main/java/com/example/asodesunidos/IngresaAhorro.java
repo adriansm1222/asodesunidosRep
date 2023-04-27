@@ -3,6 +3,7 @@ package com.example.asodesunidos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,7 +26,7 @@ public class IngresaAhorro extends AppCompatActivity {
     String current = "";
 
     Button button;
-
+    Button buttonVolver;
     Float monto;
     Float ahorroActual;
     Float salarioCliente;
@@ -41,14 +42,13 @@ public class IngresaAhorro extends AppCompatActivity {
         Intent intent = getIntent();
         usuario = intent.getStringExtra(GestionaAhorros.CEDULA);
         tipoAhorro = intent.getStringExtra(GestionaAhorros.TIPOAHORRO);
-        Toast.makeText(this, usuario, Toast.LENGTH_SHORT).show();
 
         textViewTipoAhorro = findViewById(R.id.textViewTipoAhorro);
 
         editTextNumber = findViewById(R.id.editTextNumber);
 
         button = findViewById(R.id.button);
-
+        buttonVolver = findViewById(R.id.ButtonVolver);
         tituloVentana();
         addListeners();
 
@@ -70,6 +70,10 @@ public class IngresaAhorro extends AppCompatActivity {
                             if (salarioCliente >= monto) {
                                 modificarSalario();
                                 insertarAhorro();
+                                //DEVUELVE VALORES A ACTIVITY ANTERIOR
+                                Intent intent = new Intent();
+                                intent.putExtra("CEDULA", usuario);
+                                setResult(Activity.RESULT_OK, intent);
                                 finish();
                             }
                             else{
@@ -89,7 +93,11 @@ public class IngresaAhorro extends AppCompatActivity {
 
             }
         });
-
+        buttonVolver.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void verificaSalario(){

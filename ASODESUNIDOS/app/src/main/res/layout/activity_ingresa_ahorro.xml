@@ -80,12 +80,23 @@
             android:id="@+id/editTextNumber"
             android:layout_width="299dp"
             android:layout_height="match_parent"
+            android:backgroundTint="#f1c9a0"
             android:ems="10"
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/text"
             tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/ButtonVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="40dp"
+        android:text="Volver"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

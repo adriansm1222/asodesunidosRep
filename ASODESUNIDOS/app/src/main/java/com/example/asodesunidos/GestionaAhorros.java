@@ -23,10 +23,12 @@ public class GestionaAhorros extends AppCompatActivity {
     Button buttonAddEscolar;
     Button buttonAddNavideño;
 
+    Button buttonVolver;
     String usuario;
 
     public static final String CEDULA = "GestionaAhorros.CEDULA";
     public static final String TIPOAHORRO = "GestionaAhorros.TIPOAHORRO";
+
 
 
     @Override
@@ -36,7 +38,7 @@ public class GestionaAhorros extends AppCompatActivity {
 
         Intent intent = getIntent();
         usuario = intent.getStringExtra(PantallaPrincipalClienteActivity.CEDULA);
-        Toast.makeText(this, usuario, Toast.LENGTH_SHORT).show();
+
 
         textViewEscolar = findViewById(R.id.textViewEscolar);
         textViewNavideño = findViewById(R.id.textViewNavideño);
@@ -46,12 +48,24 @@ public class GestionaAhorros extends AppCompatActivity {
         buttonAddEscolar = findViewById(R.id.buttonAddEscolar);
         buttonAddMarchamo = findViewById(R.id.buttonAddMarchamo);
         buttonAddExtra = findViewById(R.id.buttonAddExtra);
+        buttonVolver = findViewById(R.id.ButtonVolver);
 
         consultarPrestamosCliente();
         addListeners();
 
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 01 && resultCode == RESULT_OK) {
+            String resultado = data.getStringExtra("resultado");
+            // hacer algo con el resultado devuelto
+        }
+    }
+
 
     @Override
     protected void onResume() {
@@ -78,6 +92,12 @@ public class GestionaAhorros extends AppCompatActivity {
         buttonAddExtra.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ingresaAhorro("4");
+            }
+        });
+
+        buttonVolver.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
             }
         });
 
