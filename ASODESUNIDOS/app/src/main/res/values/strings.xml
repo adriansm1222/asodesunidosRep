@@ -78,4 +78,12 @@
     <string name="calcula_cuota">Calcula cuota</string>
     <string name="informaci_n_personal">Información personal</string>
     <string name="cerrar_cesi_n">Cerrar cesión</string>
+    <string name="cedula1">Cedula:</string>
+    <string name="nombre1">Nombre:</string>
+    <string name="salario2">Salario:</string>
+    <string name="fecha_de_nacimiento">Fecha De Nacimiento:</string>
+    <string name="direccion1">Direccion:</string>
+    <string name="estado_civil1">Estado Civil:</string>
+    <string name="agregar">Agregar</string>
+    <string name="informacion">INFORMACION:</string>
 </resources>

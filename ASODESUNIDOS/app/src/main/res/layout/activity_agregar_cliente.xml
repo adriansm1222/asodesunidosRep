@@ -14,7 +14,8 @@
       android:layout_marginStart="32dp"
       android:layout_marginTop="156dp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="TextSizeCheck">
 
     <TableRow
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
           android:id="@+id/cedula"
           android:layout_width="109dp"
           android:layout_height="wrap_content"
-          android:text="Cedula:"
+          android:text="@string/cedula1"
           android:textColor="#f1c9a0"
           android:textSize="20sp" />
 
@@ -36,7 +37,8 @@
           android:backgroundTint="#f1c9a0"
           android:ems="10"
           android:inputType="number"
-          android:textColor="#f1c9a0" />
+          android:textColor="#f1c9a0"
+          tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </TableRow>
 
     <TableRow
@@ -48,7 +50,7 @@
           android:id="@+id/nombre"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Nombre:"
+          android:text="@string/nombre1"
           android:textColor="#f1c9a0"
           android:textSize="20sp" />
 
@@ -59,7 +61,8 @@
           android:backgroundTint="#f1c9a0"
           android:ems="10"
           android:inputType="textPersonName"
-          android:textColor="#f1c9a0" />
+          android:textColor="#f1c9a0"
+          tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </TableRow>
 
     <TableRow
@@ -71,7 +74,7 @@
           android:id="@+id/salario"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Salario:"
+          android:text="@string/salario2"
           android:textColor="#f1c9a0"
           android:textSize="20sp" />
 
@@ -82,7 +85,8 @@
           android:backgroundTint="#f1c9a0"
           android:ems="10"
           android:inputType="number"
-          android:textColor="#f1c9a0" />
+          android:textColor="#f1c9a0"
+          tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </TableRow>
 
     <TableRow
@@ -96,7 +100,8 @@
           android:layout_height="wrap_content"
           android:text="Telefono:"
           android:textColor="#f1c9a0"
-          android:textSize="20sp" />
+          android:textSize="20sp"
+          tools:ignore="HardcodedText" />
 
       <EditText
           android:id="@+id/telefonoField"
@@ -105,7 +110,8 @@
           android:backgroundTint="#f1c9a0"
           android:ems="10"
           android:inputType="number"
-          android:textColor="#f1c9a0" />
+          android:textColor="#f1c9a0"
+          tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </TableRow>
 
     <TableRow
@@ -117,9 +123,10 @@
           android:id="@+id/nacimiento"
           android:layout_width="125dp"
           android:layout_height="match_parent"
-          android:text="Fecha De Nacimiento:"
+          android:text="@string/fecha_de_nacimiento"
           android:textColor="#f1c9a0"
-          android:textSize="20sp" />
+          android:textSize="20sp"
+          tools:ignore="TextSizeCheck" />
 
       <EditText
           android:id="@+id/nacimientoField"
@@ -130,7 +137,8 @@
           android:ems="10"
           android:focusable="false"
           android:inputType="textPersonName"
-          android:textColor="#f1c9a0" />
+          android:textColor="#f1c9a0"
+          tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
     </TableRow>
 
     <TableRow
@@ -142,7 +150,7 @@
           android:id="@+id/estadoCivil"
           android:layout_width="wrap_content"
           android:layout_height="match_parent"
-          android:text="Estado Civil:"
+          android:text="@string/estado_civil1"
           android:textAlignment="textStart"
           android:textColor="#f1c9a0"
           android:textSize="20sp" />
@@ -155,7 +163,8 @@
           android:backgroundTintMode="add"
           android:contextClickable="true"
           android:hapticFeedbackEnabled="true"
-          android:spinnerMode="dialog" />
+          android:spinnerMode="dialog"
+          tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </TableRow>
 
     <TableRow
@@ -167,7 +176,7 @@
           android:id="@+id/direccion"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Direccion:"
+          android:text="@string/direccion1"
           android:textColor="#f1c9a0"
           android:textSize="20sp" />
 
@@ -178,16 +187,19 @@
           android:backgroundTint="#f1c9a0"
           android:ems="10"
           android:inputType="textMultiLine"
-          android:textColor="#f1c9a0" />
+          android:textColor="#f1c9a0"
+          tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
       <TableRow
           android:layout_width="match_parent"
-          android:layout_height="match_parent" />
+          android:layout_height="match_parent"
+          tools:ignore="UselessLeaf" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:ignore="UselessLeaf" />
 
   </TableLayout>
 
@@ -197,10 +209,11 @@
       android:layout_height="56dp"
       android:layout_marginEnd="124dp"
       android:layout_marginBottom="40dp"
-      android:text="Agregar"
+      android:text="@string/agregar"
       android:textSize="18sp"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent" />
+      app:layout_constraintEnd_toEndOf="parent"
+      tools:ignore="TextContrastCheck" />
 
   <TextView
       android:id="@+id/textView9"
@@ -208,11 +221,12 @@
       android:layout_height="45dp"
       android:layout_marginStart="96dp"
       android:layout_marginTop="16dp"
-      android:text="INFORMACION:"
+      android:text="@string/informacion"
       android:textColor="#f1c9a0"
       android:textSize="30sp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="TextSizeCheck" />
 
   <ImageView
       android:id="@+id/imageView2"
@@ -222,6 +236,7 @@
       android:layout_marginTop="8dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView9"
-      app:srcCompat="@mipmap/cliente" />
+      app:srcCompat="@mipmap/cliente"
+      tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
