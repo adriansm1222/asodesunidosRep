@@ -19,14 +19,14 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,TextSizeCheck">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Marchamo"
+            android:text="@string/marchamo"
             android:textAlignment="textStart"
             android:textColor="@color/text"
             android:textSize="16sp" />
@@ -36,16 +36,17 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=". . . . . . . . . . . . . . "
+            android:text="@string/volver1"
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/textViewMarchamo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="₡0"
+            android:text="@string/_0"
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textSize="16sp" />
@@ -66,11 +67,12 @@
 
         <Button
             android:id="@+id/buttonAddMarchamo"
-            android:layout_width="8dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="+"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:text="@string/buttonAddmarchamo"
+            android:textColor="@color/text"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -90,26 +92,28 @@
             android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Extraordinario"
+            android:text="@string/extraordinario"
             android:textAlignment="textStart"
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=". . . . . . . . . . . . . . "
+            android:text="@string/tv12"
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/textViewExtraordinario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="₡0"
+            android:text="@string/_01"
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textSize="16sp" />
@@ -126,7 +130,8 @@
         android:src="@mipmap/ic_launcher_ahorro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="ContentDescription,MissingConstraints"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView"
@@ -134,11 +139,12 @@
         android:layout_height="38dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="44dp"
-        android:text="Gestiona tus ahorros mensuales:"
+        android:text="@string/gestiona_tus_ahorros_mensuales"
         android:textColor="@color/text"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
 
     <LinearLayout
@@ -151,14 +157,14 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,TextSizeCheck">
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Navideño"
+            android:text="@string/navide_o"
             android:textAlignment="textStart"
             android:textColor="@color/text"
             android:textSize="16sp" />
@@ -168,16 +174,17 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=". . . . . . . . . . . . . . "
+            android:text="@string/tv6"
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/textViewNavideño"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="₡0"
+            android:text="@string/_02"
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textSize="16sp" />
@@ -198,11 +205,12 @@
 
         <Button
             android:id="@+id/buttonAddNavideño"
-            android:layout_width="8dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:textColor="@color/text"
+            tools:ignore="HardcodedText,TextContrastCheck,TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -223,7 +231,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:textColor="@color/text"
+            tools:ignore="HardcodedText,InefficientWeight,TextContrastCheck,TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -236,7 +245,7 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,TextSizeCheck">
 
         <TextView
             android:id="@+id/textView8"
@@ -246,7 +255,8 @@
             android:text="Escolar"
             android:textAlignment="textStart"
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView9"
@@ -255,7 +265,8 @@
             android:layout_weight="1"
             android:text=". . . . . . . . . . . . . . "
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,TextSizeCheck" />
 
         <TextView
             android:id="@+id/textViewEscolar"
@@ -265,7 +276,8 @@
             android:text="₡0"
             android:textAlignment="center"
             android:textColor="@color/text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -285,7 +297,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:textColor="@color/text"
+            tools:ignore="HardcodedText,InefficientWeight,TextContrastCheck,TouchTargetSizeCheck" />
     </LinearLayout>
 
     <Button
@@ -294,10 +307,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
         android:layout_marginTop="21dp"
+        android:onClick="volver"
         android:text="Volver"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        android:onClick="volver"/>
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

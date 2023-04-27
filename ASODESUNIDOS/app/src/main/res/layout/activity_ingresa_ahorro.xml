@@ -30,7 +30,7 @@
         android:src="@mipmap/ic_launcher_ahorro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTipoAhorro"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="ContentDescription,MissingConstraints" />
 
 
     <TextView
@@ -45,7 +45,8 @@
         android:textColor="@color/text"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        tools:ignore="HardcodedText,TextSizeCheck" />
 
     <Button
         android:id="@+id/button"
@@ -55,7 +56,8 @@
         android:layout_marginTop="42dp"
         android:text="Ingresar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <LinearLayout
         android:id="@+id/linearLayout8"
@@ -74,7 +76,8 @@
             android:layout_weight="1"
             android:text="₡"
             android:textAlignment="textEnd"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            tools:ignore="HardcodedText,InefficientWeight" />
 
         <EditText
             android:id="@+id/editTextNumber"
@@ -85,7 +88,8 @@
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/text"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="LabelFor,SpeakableTextPresentCheck"
+            android:autofillHints="" />
     </LinearLayout>
 
     <Button
@@ -97,7 +101,8 @@
         android:onClick="volver"
         android:text="Volver"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
